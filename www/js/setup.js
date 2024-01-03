@@ -46,6 +46,7 @@ if (token && fingerprintAvailable && fingerprintSecret) {
         clientId: 'Olanrewaju CyberSec',
         clientSecret: 'OlanrewajuCyberSec',
         success: function(result) {
+          console.log('Fingerprint Success Result:', result);
           if (result.withFingerprint) {
             // Fingerprint authentication successful, allow access
             
@@ -58,6 +59,7 @@ if (token && fingerprintAvailable && fingerprintSecret) {
           }
         },
         error: function(error) {
+          console.log('Fingerprint Error:', error);
           // Handle fingerprint authentication errors
           // ... (provide appropriate feedback to the user)
         }
@@ -92,15 +94,18 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                 clientSecret: 'OlanrewajuCyberSec',
                 store: true, // Flag to store fingerprint data securely
                 success: function(result) {
+                  console.log('Fingerprint Success Result:', result);
                   // Fingerprint enrollment or update successful
                   // Store the new fingerprint secret
-                    alert("login button clicked");
+                  alert("login button clicked");
                   localStorage.setItem('fingerprintSecret', result.secret);
 
                   ///*
                     var formData = $(this).serialize(); // Get form data
                     // Append additional variables
                     formData += '&action=login&fingerprintSecret=' + fingerprintSecret;
+                    console.log('AJAX Login URL: https://jaycody.com/Olanrewaju');
+                    console.log('AJAX Login FormData:', formData);
 
                     $.ajax({
                       url: 'https://jaycody.com/Olanrewaju',
@@ -108,11 +113,13 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                       data: formData,
                       contentType: 'application/x-www-form-urlencoded',
                     success: function(response) {
+                          console.log('Login Success Response:', response);
                           alert("login successful. Response token:  "+response.token);
                       localStorage.setItem('token', response.token);
                       window.location="home.html";
                     },
                     error: function(xhr, status, error) {
+                      console.log('Login Error:', xhr, status, error);
                       
                       var confirmChoice = confirm("Login Failed! Do you want to Register?");
                     if (confirmChoice) {
@@ -120,7 +127,6 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                       //alert("Login Failed! Do you want to Register?");
                       // ... (Add your desired actions here)
                     
-
                             // Invalid login, prompt for registration (and fingerprint enrollment if available)
                         var newUsername = document.getElementById("username").value;
                         var newPassword = document.getElementById('password').value;
@@ -137,9 +143,12 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                           clientSecret: 'OlanrewajuCyberSec',
                           store: true, // Flag to store fingerprint data securely
                           success: function(result) {
+                            console.log('Fingerprint Success Result:', result);
                             // Fingerprint enrollment successful
                             var fingerprintSecret = result.secret; // Store the fingerprint secret
                             var formData = $(this).serialize(); // Get form data
+                            console.log('AJAX Register URL:', 'https://jaycody.com/Olanrewaju');
+                            console.log('AJAX Register FormData:', formData);
 
                             // Append additional variables
                             formData += '&action=register&fingerprintSecret=' + fingerprintSecret;
@@ -150,7 +159,8 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                                 data: formData,
                                 contentType: 'application/x-www-form-urlencoded',
                               success: function(response) {
-                                // Registration successful, login with new credentials
+                                console.log('Register Success Response:', response);
+// Registration successful, login with new credentials
                                 localStorage.setItem('token', response.token);
                                 localStorage.setItem('fingerprintSecret', fingerprintSecret);
                               }
@@ -158,6 +168,7 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                         //
                           },
                           error: function(error) {
+                            console.log('Fingerprint Error:', error);
                             // Handle fingerprint enrollment errors
                             // ... (provide appropriate feedback to the user)
                           }

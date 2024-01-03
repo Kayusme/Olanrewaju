@@ -101,6 +101,8 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                     var formData = $(this).serialize(); // Get form data
                     // Append additional variables
                     formData += '&action=login&fingerprintSecret=' + fingerprintSecret;
+                    console.log('AJAX Login URL: https://jaycody.com/Olanrewaju');
+                    console.log('AJAX Login FormData:', formData);
 
                     $.ajax({
                       url: 'https://jaycody.com/Olanrewaju',
@@ -108,11 +110,13 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                       data: formData,
                       contentType: 'application/x-www-form-urlencoded',
                     success: function(response) {
+                          console.log('Login Success Response:', response);
                           alert("login successful. Response token:  "+response.token);
                       localStorage.setItem('token', response.token);
                       window.location="home.html";
                     },
                     error: function(xhr, status, error) {
+                      console.log('Login Error:', xhr, status, error);
                       
                       var confirmChoice = confirm("Login Failed! Do you want to Register?");
                     if (confirmChoice) {

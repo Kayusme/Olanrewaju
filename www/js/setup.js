@@ -7,7 +7,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * HTTP requests are being handled using jQuery's ajax method://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -28,7 +28,7 @@ function onDeviceReady() {
     document.getElementById('deviceready').classList.add('ready');
     */
 
-    //cordova.plugin.http.setRequestTimeout(50.0);
+    // Setting the request timeout is not needed in this codebase as jQuery's ajax handles it.
     /////PROJECT CODE STARTS HERE ////////
     // Install the Fingerprint AIO plugin
 //cordova plugin add cordova-plugin-fingerprint-aio
@@ -102,7 +102,7 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                     // Append additional variables
                     formData += '&action=login&fingerprintSecret=' + fingerprintSecret;
 
-                    $.ajax({
+                    $.ajax({ // Initiating a POST HTTP request using jQuery's Ajax for logging in
                       url: 'https://jaycody.com/Olanrewaju',
                       type: 'POST',
                       data: formData,
@@ -144,7 +144,7 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                             // Append additional variables
                             formData += '&action=register&fingerprintSecret=' + fingerprintSecret;
 
-                              $.ajax({
+                              $.ajax({ // Initiating a POST HTTP request using jQuery's Ajax for registration
                                 url: 'https://jaycody.com/Olanrewaju',
                                 type: 'POST',
                                 data: formData,

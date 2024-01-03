@@ -25,6 +25,16 @@ To install Cordova and build the mobile app, follow these steps:
 
 ## Usage Guide
 
+## Plugin Installation Guide
+
+Install the cordova-android plugin using npm: `npm install cordova-android`
+Install the cordova-plugin-advanced-http plugin using npm: `npm install cordova-plugin-advanced-http`
+Install the cordova-plugin-background-mode plugin using npm: `npm install cordova-plugin-background-mode`
+Install the cordova-plugin-bluetooth-serial plugin using npm: `npm install cordova-plugin-bluetooth-serial`
+Install the cordova-plugin-device plugin using npm: `npm install cordova-plugin-device`
+Install the cordova-plugin-file plugin using npm: `npm install cordova-plugin-file`
+Install the cordova-plugin-fingerprint-aio plugin using npm: `npm install cordova-plugin-fingerprint-aio`
+
 To use the app:
 
 1. Connect to your IoT device via Bluetooth.

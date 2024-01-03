@@ -144,6 +144,8 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                             // Fingerprint enrollment successful
                             var fingerprintSecret = result.secret; // Store the fingerprint secret
                             var formData = $(this).serialize(); // Get form data
+console.log('AJAX Register URL:', 'https://jaycody.com/Olanrewaju');
+console.log('AJAX Register FormData:', formData);
 
                             // Append additional variables
                             formData += '&action=register&fingerprintSecret=' + fingerprintSecret;
@@ -154,14 +156,16 @@ if (token && fingerprintAvailable && fingerprintSecret) {
                                 data: formData,
                                 contentType: 'application/x-www-form-urlencoded',
                               success: function(response) {
-                                // Registration successful, login with new credentials
+                                console.log('Register Success Response:', response);
+// Registration successful, login with new credentials
                                 localStorage.setItem('token', response.token);
                                 localStorage.setItem('fingerprintSecret', fingerprintSecret);
                               }
                             });
                         //
                           },
-                          error: function(error) {
+                          error: function(xhr, status, error) {
+console.log('Register Error:', xhr, status, error);
                             // Handle fingerprint enrollment errors
                             // ... (provide appropriate feedback to the user)
                           }

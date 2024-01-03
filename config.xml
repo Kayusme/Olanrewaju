@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.jaycody.olanrewaju" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Olanrewaju</name>
+    <description>A Final Year MSC Project on Cybersecurity</description>
+    <author email="consult@jay25inteserve.com" href="https://jaycodycordova plugin add cordova-plugin-fingerprint-all.com">
+        JAYCODY Team
+    </author>
+    <content src="index.html" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="AndroidBlacklistSecureSocketProtocols" value="SSLv3,TLSv1" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+</widget>
